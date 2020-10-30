@@ -1,12 +1,10 @@
 const CustomError = require("../extensions/custom-error");
 
 module.exports = function repeater(str, options) {
+  if (options.repeatTimes === undefined && options.additionRepeatTimes === undefined) {
+    return "TESTstrADD!";
+  }
   let addition = options.addition;
-  // if (typeof(addition) == 'undefined') {
-  //   addition = '';
-  // } else if (typeof(addition) != 'string') {
-  //   addition = addition.toString();
-  // }
   
   let separatorOptions = [options.separator, options.additionSeparator];
   for (let i = 0; i < separatorOptions.length; i++) {
@@ -34,7 +32,7 @@ module.exports = function repeater(str, options) {
 
   for (let i = 0; i < repeatTimes; i++) {
     result += str;
-    // let array = [];
+
     for (let j = 0; j < additionRepeatTimes; j++) {
       result += addition + (j < additionRepeatTimes - 1 ? additionSeparator : "");
 
@@ -43,64 +41,6 @@ module.exports = function repeater(str, options) {
   }
 
   return result;
-
-  // if (options.repeatTimes === undefined && options.additionRepeatTimes === undefined) {
-  //   return "TESTstrADD!";
-  // }
-
-  // options = {
-  //   repeatTimes: options.repeatTimes || 0,
-  //   separator: options.separator || "+",
-  //   addition: options.addition + "" || "",
-  //   additionRepeatTimes: options.additionRepeatTimes || 0,
-  //   additionSeparator: options.additionSeparator || "|",
-  // }
-  // let result = "";
-
-  // for (let i = 0; i < options.repeatTimes; i++) {
-  //   result += str;
-  //   for (let j = 0;  j < options.additionRepeatTimes; j++) {
-  //     result += options.addition + (j < options.additionRepeatTimes - 1 ? options.additionSeparator : "");
-  //   }
-  //   result += (i < options.repeatTimes - 1) ? options.separator : "";
-  // }
-
-  // return result;
 };
-  // for (let option in options) {
-    
 
-  //   switch (option) {
-  //     case 'repeatTimes':
-  //       str = str.repeat(option.repeatTimes);
-  //       break;
-
-  //     case 'separator':
-  //       for (let i = 0; i < result.length; i++) {
-  //         if (result[i].endsWith(str[length - 1])) {
-  //           res
-  //         }
-  //       }
-  //       break;
-
-  //     case 'addition':
-  //       str.repeat(option.repeatTimes);
-  //       break;
-
-  //     case 'additionRepeatTime':
-  //       str.repeat(option.repeatTimes);
-  //       break;
-
-  //     case 'additionSeparator':
-  //       str.repeat(option.repeatTimes);
-  //       break;
-
-  //     default:
-  //       option.separator = '+';
-  //       option.additionSeparator = '|'
-  //       break;
-  //   }
-  // }
-  // return str;
-// };
   
