@@ -6,16 +6,6 @@ module.exports = function transform(arr) {
   if (arr.length === 0) return arr;
   const newArray = [];
   for (let i = 0; i < arr.length; i++) {
-    /*
-    if (typeof(arr[i]) === 'boolean') {
-      i++;
-    }
-    */
-   /*
-   if (typeof(arr[i]) === 'object') {
-     newArray.push(arr[i]);
-   }
-   */
     switch (arr[i]) {
       case '--discard-next':
         if (arr[i + 2] === '--discard-prev' || arr[i + 2] === '--double-prev') {
